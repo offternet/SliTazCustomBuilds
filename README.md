@@ -2,21 +2,22 @@
 
 For more information on the SliTaz OS, please visit and consider supporting their work: [SliTaz Official Webiste](https://slitaz.org)
 
-SliTazCustomBuilds are not ISO install custom builds but, rather dd copy of either bootable usb drive image (ie: /dev/sdb) or just the partition image (/dev/sda1) which can be written to a Hard Drive partion or one of my GoDistro built USB drives. Only the drive image contains the bootrecorder and GRUB2 bootloader. Both types of dd image files are configured to function with GRUB2 bootloader. They are dd images of complete builds of various SliTaz flavor "partition" which can be written to a ext3 hard drive partiion. They use GRUB2 bootloader files and once the file is written to your parition you can run update-grub from another partition add the copied SliTazCustomBuild should be added to your GRUB booloader menu. It will show up as unkown linux.
+SliTazCustomBuilds are not ISO install custom builds but, rather a dd bit for bit image copy (data only) of either bootable usb drive image (ie: /dev/sdb) or just the partition image (/dev/sda1) which can be written to a Hard Drive partion or one of my GoDistro built USB drives. Expansion of the partition is required but, easily done using Gparted. Only the Drive image version contains the bootrecorder and GRUB2 bootloader. Both types of dd image files are configured to function with GRUB2 bootloader. They are dd images of complete builds of various SliTaz flavor "partition" which can be written to a ext3 hard drive partiion. They use GRUB2 bootloader files and once the file is written to your parition you can run update-grub from another partition add the copied SliTazCustomBuild should be added to your GRUB booloader menu. It will show up as unkown linux. All dd images are compressed with xz compression for integrity reasons and you save you time as this reduces file size as much as 75%.
 
 **Basic procedure for installing SliTazCustomBuilds
 Install partition version to Hard Drive partition:**
 
 1. Using Gparted create a parition of at least 1GB (Recommend: 5GB+) and format it to ext3
-2. Terminal: write dd image file to ext3 prepared partition: ```sudo dd if=/path-to-file/filename.img of=/dev/sdaX bs=1MB status=progress && sync```
-3. open Gparted: A. Select correct partition; B. Unmount if its mouted, Right click: Unmount; C. Click Partition / Check / Checkmark to expand partition to full size.
-4. Terminal: ```update-grub```
-5. Reboot | Select your correct /dev/sdaX unknown linux from the GRUB2 bootloader menu list.
-6. Login using username: linux | Password: linux123  (Note: you can also log in to root account (Not Recommended unless necessary: username: root | Password: root)
-7. Click Applications --> System Tools --> Sakura Terminal --> blkid --> (Locate the correct partition identifier for your new SliTaz Custom Install, ie, /dev/sda2. Record UUID Number
-8. Click Applications --> System Tools --> SliTaz Panel --> Green Person Icon to top righ --> username: root | Password: root --> Boot --> Summary --> **rcS.conf** --> VIEW (Verify UUID matches Terminal blkid UUID)
-9. If UUID in Boot Settings **rcS.conf** does NOT match blkid: Click -> Edit --> replace UUID with correct number --> Save
-10. Recommend Changing your account passwords: user account passord can be changed from the SliTaz Panel but, the root password has be changed using Terminal. 
+2. Deompress the image xz file format using GUI archiver program or via the terminal (xz package recommended): xz -d slitaz_xxxxx.xz --=====--> slitaz_xxxx.img
+3. Terminal: write dd image file to ext3 prepared partition: ```sudo dd if=/path-to-file/filename.img of=/dev/sdaX bs=1MB status=progress && sync```
+4. open Gparted: A. Select correct partition; B. Unmount if its mouted, Right click: Unmount; C. Click Partition / Check / Checkmark to expand partition to full size.
+5. Terminal: ```update-grub```
+6. Reboot | Select your correct /dev/sdaX unknown linux from the GRUB2 bootloader menu list.
+7. Login using username: linux | Password: linux123  (Note: you can also log in to root account (Not Recommended unless necessary: username: root | Password: root)
+8. Click Applications --> System Tools --> Sakura Terminal --> blkid --> (Locate the correct partition identifier for your new SliTaz Custom Install, ie, /dev/sda2. Record UUID Number
+9. Click Applications --> System Tools --> SliTaz Panel --> Green Person Icon to top righ --> username: root | Password: root --> Boot --> Summary --> **rcS.conf** --> VIEW (Verify UUID matches Terminal blkid UUID)
+10. If UUID in Boot Settings **rcS.conf** does NOT match blkid: Click -> Edit --> replace UUID with correct number --> Save
+11. Recommend Changing your account passwords: user account passord can be changed from the SliTaz Panel but, the root password has be changed using Terminal. 
 
 Install USB Drive version with bootrecorder and GRUB bootloader installed (bootalbe) to a USB Thumb Drive:
 1. Its always best to use Gparted and format the USB Drive to ext3 filesystem:
