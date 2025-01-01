@@ -1,6 +1,6 @@
 # SliTazCustomBuilds 
 
-(For more information on the SliTaz OS, please visit and consider supporting their work: [SliTaz](htts://slitaz.org)
+For more information on the SliTaz OS, please visit and consider supporting their work: [SliTaz Official Webiste](https://slitaz.org)
 
 SliTazCustomBuilds are not ISO install custom builds but, rather dd copy of either bootable usb drive image (ie: /dev/sdb) or just the partition image (/dev/sda1) which can be written to a Hard Drive partion or one of my GoDistro built USB drives. Only the drive image contains the bootrecorder and GRUB2 bootloader. Both types of dd image files are configured to function with GRUB2 bootloader. They are dd images of complete builds of various SliTaz flavor "partition" which can be written to a ext3 hard drive partiion. They use GRUB2 bootloader files and once the file is written to your parition you can run update-grub from another partition add the copied SliTazCustomBuild should be added to your GRUB booloader menu. It will show up as unkown linux.
 
@@ -30,8 +30,9 @@ Recommend writting dd img file from a local hard drive parition only and not fro
 **WARNING: USING THE WRONG DRIVE AND/OR PARITION IDENTIFIER WILL DESTROY YOUR DATA !! ** Verify 3 times your terminal command is correct.
   Writing dd image to hard drive partition:  In bash / sh termial: cd to directory containing the SliTazCustomBuild img file | ```sudo dd if=./filename.img of=/dev/sdX bs=1MB status=progress && sync```
   
-Installed Programs:
-Accessories:
+**Installed Programs: (packages)** (This list will vary somewhat from build to build. Note: Its easy to install available packages using SliTaz Panel)
+
+**Accessories:**
   1. Burn CD/DVD
   2. Galcutor
   3. Grab Screenshot
@@ -41,5 +42,62 @@ Accessories:
   7. Spreadsheet
   8. Time.is
   9. VNC Viewer
-  10. 
+  10. Wiki Documents
 
+**Development**
+  1. Beaver Code Editor
+  2. BitBucket Repositories
+  3. CGI Shell Environment
+  4. Dialog Example
+  5. Icon Browser
+  6. SliTaz bug report
+  7. Vi Text Editor
+
+**Documentation**
+  1. Cookutils Documentation
+  2. GNU Genral Public License
+  3. System Documentation
+  4. Tazinst manaul
+  5. Tazlito manual
+  6. TazPkg manual
+  7. Tazusb manual
+
+**Games**
+  1. 2048 | Alien Invasion | Anyone | Arkanoid | Boulder Dash | Checkers | Chinese Checkers | Connect Four | Digger | Lode Runner
+  2. Mahjong | Mine sweeper | NanoChess | Pacman | Racer | Same | Sokoban | Space Invaders | Sudoku | Tetris
+
+**Graphics**
+  1. Gcolor2 Color Selector
+  2. GNU Image Manipulation Program GIMP
+  3. Image Viewer
+  4. mtPaint Image Editor
+  5. Shutterbug screenshot
+
+**Internet**
+  1. Gemini project
+  2. Local Web Server (localhost | 127.0.0.1)
+  3. Midori
+  4. Midori Private Browsing
+  5. SCP Secure Copy
+  6. TazIRC IRC client
+  7. Twitter Micro-bloggin
+  8. VPN/SSH
+
+**Multimedia**
+  1. Alsamixer Volume mixer
+  2. Alsaplayer Audio Player
+  3. Asunder CD Ripper
+  4. Audio Editor mhWaveEditor
+  5. Jamendo Music
+  6. Video Player
+  7. Video Player (fullscreeen)
+  8. Web Radio
+
+**Office**
+  1. Encrypted paste tool
+  2. ePDFView PDF Viewer
+  3. Network printer
+  4. SQLite SQL Engine
+  5. Wikipedia Encyclopedia
+
+**Preferences**
